@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MonthLayout">
+        <attr name="first_day_int_month" format="enum">
+            <enum name="Monday" value="1"/>
+            <enum name="Tuesday" value="2"/>
+            <enum name="Wednesday" value="3"/>
+            <enum name="Thursday" value="4"/>
+            <enum name="Friday" value="5"/>
+            <enum name="Saturday" value="1"/>
+            <enum name="Sunday" value="7"/>
+        </attr>
+        <attr name="day_num" format="integer"/>
+        <attr name="auto_get_data" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pane_backgroundSolid">#00FF00</color>
+    <color name="pane_backgroundStroke">#FFFFFF</color>
+    <color name="pane_past">#F0FF00</color>
+    <color name="pane_no_use">#FFFFFF</color>
+</resources>
