@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import com.example.randy.ninehundredmonth.R;
@@ -23,6 +25,7 @@ public class HomeActivity extends FragmentActivity{
     private static final int TAB_POS_2=2;
     private HashMap<Integer,Fragment> mFragmentMap;
     private ViewPager mViewPager;
+    private PagerAdapter mPagerAdapter;
 //    private ArrayList<>
     /**
      * 这个是用来监控VIewPager的界面的转换的，但是如果除了PageView之外，没有界面使用
@@ -49,10 +52,14 @@ public class HomeActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initView();
+        mFragmentMap=new HashMap<Integer, Fragment>();
     }
     private void initView() {
         mViewPager=(ViewPager)findViewById(R.id.viewPager);
-
+        //所有的view如果忘记了添加adapter的话，都没有结果的啊。
+        mPagerAdapter=new HomePagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setCurrentItem(0);
     }
 
     private class HomePagerAdapter extends FragmentPagerAdapter {

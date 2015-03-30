@@ -12,8 +12,7 @@ import com.example.randy.ninehundredmonth.R;
  * Created by randy on 15-3-29.
  */
 public class LifeFragment extends BaseFragment {
-    private Context context;
-    private View mView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +20,12 @@ public class LifeFragment extends BaseFragment {
     }
 
     @Override
-    void initRootView() {
-        mView= LayoutInflater.from(context).inflate(R.layout.fragment_life,null);
+    void initView() {
+
+    }
+
+    @Override
+    int getLayout() {
+        return R.layout.fragment_life;
     }
 }
