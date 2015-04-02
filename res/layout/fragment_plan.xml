@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="fragment_plan"
-        />
-</LinearLayout>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/plan_topbar_background"
+
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="边栏"
+                android:id="@+id/plan_topbar_slidebar_button"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日代办"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@id/plan_topbar_slidebar_button"
+                android:id="@+id/plan_topbar_title"
+                android:layout_marginTop="5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="3条"
+                android:layout_toRightOf="@id/plan_topbar_slidebar_button"
+                android:layout_below="@id/plan_topbar_title"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/buy_cart_plusbtn"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        </LinearLayout>
+    <ListView
+        android:layout_gravity="start"
+        android:layout_width="240dp"
+        android:id="@+id/plan_sildebar"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+
+        >
+
+
+        </ListView>
+</android.support.v4.widget.DrawerLayout>

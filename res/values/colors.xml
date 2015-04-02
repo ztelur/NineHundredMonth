@@ -4,4 +4,6 @@
     <color name="pane_backgroundStroke">#FFFFFF</color>
     <color name="pane_past">#F0FF00</color>
     <color name="pane_no_use">#FFFFFF</color>
+    <color name="plan_topbar_background">#1874CD</color>
+    <color name="white">#FFFFFF</color>
 </resources>
