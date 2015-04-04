@@ -29,6 +29,14 @@ public abstract class BaseFragment extends Fragment {
     }
     abstract void initView();
     abstract int getLayout();
+    /**
+     * 供外界调用来获得DrawerLayout的画出效果的。
+     * @param i
+     * @param v
+     * @param i2
+     */
+     public void onPageScolled(int i,float v,int i2) {
 
+     }
 
 }

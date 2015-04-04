@@ -28,4 +28,5 @@ public class LifeFragment extends BaseFragment {
     int getLayout() {
         return R.layout.fragment_life;
     }
+
 }
