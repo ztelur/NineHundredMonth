@@ -1,8 +1,11 @@
 package com.example.randy.ninehundredmonth.ui;
 
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.MessageQueue;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +13,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
@@ -46,6 +52,7 @@ public class HomeActivity extends FragmentActivity{
     public void onPageSelected(int i) {
         Log.e("onPageSelected",i+"");
         cur_Fragment=i;
+        getActionBar().setSelectedNavigationItem(i);
     }
 
     @Override
@@ -56,8 +63,38 @@ public class HomeActivity extends FragmentActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        initActionBar();
         initView();
         mFragmentMap=new HashMap<Integer, BaseFragment>();
+
+    }
+    private void initActionBar() {
+        final ActionBar actionBar=getActionBar();
+        //这是设置的ｔａｂ的显示的模式
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        ActionBar.TabListener tabListener=new ActionBar.TabListener() {
+            @Override
+            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+                if (mViewPager!=null) {
+                    mViewPager.setCurrentItem(tab.getPosition());
+                }
+            }
+
+            @Override
+            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+            }
+
+            @Override
+            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+            }
+        };
+        for(int i=0;i<FRAGMENT_SIZE;i++) {
+            ActionBar.Tab tab=actionBar.newTab();
+            actionBar.addTab(actionBar.newTab().setText("tab"+i).setTabListener(tabListener));
+        }
+
     }
     private void initView() {
         mViewPager=(ViewPager)findViewById(R.id.viewPager);
@@ -93,7 +130,7 @@ public class HomeActivity extends FragmentActivity{
                     break;
                 case TAB_POS_2:
                     fragment=new LifeFragment();
-                    MessageQueue
+
                     break;
                 default:
                     assert true;
@@ -103,6 +140,7 @@ public class HomeActivity extends FragmentActivity{
             Log.e("getItem","fragment is"+i);
             mFragmentMap.put(i,fragment);
             return fragment;
+
         }
 
         @Override
@@ -120,5 +158,30 @@ public class HomeActivity extends FragmentActivity{
 
         }
         return result;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_home,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_find:
+                Log.e("MenuItem","find");
+                return true;
+            case R.id.action_search:
+                Log.e("MenuItem","search");
+                return true;
+            case R.id.action_settings:
+                Log.e("MenuItem","setting");
+                return true;
+            default:
+                return super.onMenuItemSelected(featureId, item);
+        }
     }
 }

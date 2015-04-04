@@ -13,7 +13,7 @@
 
         </activity>
         <activity android:name=".ui.HomeActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
+                        android:theme="@style/HomeActivityActionbar"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
